@@ -4,18 +4,26 @@ package org.swxtz.entities;
 import java.util.HashSet;
 
 public class Filme {
+
     private String nome;
     private Diretor diretor;
     private HashSet<Ator> elenco;
     private float nota;
 
     public Filme(String nome, Diretor diretor, HashSet<Ator> elenco, float nota) {
+        super();
         this.nome = nome;
         this.diretor = diretor;
-        this.elenco = elenco;
+        this.elenco = new HashSet<Ator>(elenco);
         this.nota = nota;
     }
 
+    public Filme(Filme filme) {
+        this.nome = filme.getNome();
+        this.diretor = new Diretor(filme.getDiretor());
+        this.elenco = filme.getElenco();
+        this.nota = filme.getNota();
+    }
 
     public String getNome() {
         return nome;
@@ -30,15 +38,15 @@ public class Filme {
     }
 
     public void setDiretor(Diretor diretor) {
-        this.diretor = new Diretor(diretor);
+        this.diretor = diretor;
     }
 
     public HashSet<Ator> getElenco() {
-        return new HashSet<Ator>(elenco);
+        return new HashSet<Ator>(this.elenco);
     }
 
     public void setElenco(HashSet<Ator> elenco) {
-        this.elenco = elenco;
+        this.elenco = new HashSet<Ator>(elenco);
     }
 
     public float getNota() {

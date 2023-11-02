@@ -6,18 +6,23 @@ import java.util.HashSet;
 import java.util.Iterator;
 
 public class AtorRepository {
+
     private HashSet<Ator> atores;
 
-    public AtorRepository(HashSet<Ator> atores) {
-        this.atores = atores;
-    }
-
-    public HashSet<Ator> getAtores() {
-        return new HashSet<Ator>(this.atores);
+    public AtorRepository() {
+        this.atores = new HashSet<Ator>();
     }
 
     public boolean addAtor(Ator ator) {
         return this.atores.add(ator);
+    }
+
+    public boolean removeAtor(Ator ator) {
+        return this.atores.remove(ator);
+    }
+
+    public HashSet<Ator> getAtores() {
+        return new HashSet<Ator>(this.atores);
     }
 
     public Ator getAtor(String nome) {
@@ -25,9 +30,9 @@ public class AtorRepository {
 
         Iterator<Ator> ator = atores.iterator();
 
-        for (Ator i = null; ator.hasNext(); i = ator.next()) {
+        for(Ator i = null; ator.hasNext(); i = ator.next()) {
 
-            if (i.getNome().equals(nome)) {
+            if(i.getNome().equals(nome)) {
                 a = new Ator(i);
                 break;
             }
@@ -35,6 +40,5 @@ public class AtorRepository {
         }
 
         return a;
-
     }
 }

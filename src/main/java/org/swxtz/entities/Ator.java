@@ -7,6 +7,9 @@ public class Ator {
         this.nome = nome;
     }
 
+    public Ator(Ator ator) {
+        this.nome = ator.nome;
+    }
 
     public String getNome() {
         return nome;

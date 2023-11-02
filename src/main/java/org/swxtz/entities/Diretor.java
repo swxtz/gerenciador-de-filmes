@@ -7,6 +7,10 @@ public class Diretor {
         this.nome = nome;
     }
 
+    public Diretor(Diretor diretor) {
+        this.nome = diretor.nome;
+    }
+
 
     public String getNome() {
         return nome;
